@@ -19,7 +19,7 @@ app.config(function ($routeProvider) {
       controller: 'BoardCtrl',
       resolve: { isAuth }
     })
-    .when("/singleBoard", {
+    .when("/singleBoard/:id", {
       templateUrl: 'partials/singleBoard.html',
       controller: 'BoardCtrl',
       resolve: { isAuth }
