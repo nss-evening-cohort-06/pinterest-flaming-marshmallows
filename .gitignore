@@ -2,4 +2,4 @@
 lib/node_modules
 javascripts/AppConstants.js
 public
-
+lib/package-lock.json
