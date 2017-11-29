@@ -1,0 +1,98 @@
+{
+  "boards": {
+    "board0": {
+      "name": "dogs",
+      "description": "This is a board about the best companions on the planet, doges!",
+      "uid": "AIzaSyC0oDS3c98jIGyLkwCW5kRfFdZNjcjimQA"
+    },
+    "board1": {
+      "name": "cats",
+      "description": "This is the devil's board. Cats are not great.",
+      "uid": "AIzaSyC0oDS3c98jIGyLkwCW5kRfFdZNjcjimQA"
+    },
+    "board2": {
+      "name": "moms",
+      "description": "We love our moms.",
+      "uid": "AIzaSyC0oDS3c98jIGyLkwCW5kRfFdZNjcjimQA"
+    },
+    "board3": {
+      "name": "sports",
+      "description": "All things sports!! GO SPORTS!",
+      "uid": "AIzaSyC0oDS3c98jIGyLkwCW5kRfFdZNjcjimQA"
+    },
+    "pins": {
+      "pin0": {
+        "name": "Dog Stuff",
+        "board_id": "dogs",
+        "tried": true,
+        "url": "https://www.petfinder.com/dogs/"
+      },
+      "pin1": {
+        "name": "Dog toys",
+        "board_id": "dogs",
+        "tried": false,
+        "url": "https://www.petfinder.com/dogs/"
+      },
+      "pin2": {
+        "name": "Dogs with other dogs",
+        "board_id": "dogs",
+        "tried": true,
+        "url": "https://www.petfinder.com/dogs/"
+      },
+      "pin3": {
+        "name": "Mom Stuff",
+        "board_id": "moms",
+        "tried": true,
+        "url": "http://www.thenashvillemom.com/make-new-mama-friends/"
+      },
+      "pin4": {
+        "name": "Shopping with mom",
+        "board_id": "moms",
+        "tried": false,
+        "url": "http://www.thenashvillemom.com/make-new-mama-friends/"
+      },
+      "pin5": {
+        "name": "Happy Mother's Day",
+        "board_id": "moms",
+        "tried": true,
+        "url": "http://www.thenashvillemom.com/make-new-mama-friends/"
+      },
+      "pin6": {
+        "name": "Cat Stuff",
+        "board_id": "cats",
+        "tried": true,
+        "url": "http://www.vetstreet.com/cats/"
+      },
+      "pin7": {
+        "name": "Cat toys",
+        "board_id": "cats",
+        "tried": true,
+        "url": "http://www.vetstreet.com/cats/"
+      },
+      "pin8": {
+        "name": "Cats with other cats",
+        "board_id": "cats",
+        "tried": true,
+        "url": "http://www.vetstreet.com/cats/"
+      },
+      "pin9": {
+        "name": "Sports Stuff",
+        "board_id": "sports",
+        "tried": true,
+        "url": "http://www.espn.com/"
+      },
+      "pin10": {
+        "name": "Football",
+        "board_id": "sports",
+        "tried": true,
+        "url": "http://www.espn.com/"
+      },
+      "pin11": {
+        "name": "Hockey",
+        "board_id": "sports",
+        "tried": true,
+        "url": "http://www.espn.com/"
+      }
+    }
+  }
+}
