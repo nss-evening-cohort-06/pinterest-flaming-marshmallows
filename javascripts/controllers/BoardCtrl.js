@@ -3,7 +3,8 @@
 app.controller("BoardCtrl", function ( $location, $rootScope, $scope, PinterestService ) {
 
     const getBoards = () => {
-        PinterestService.SOMEFUNC().then((results) => {
+        let boards = [];
+        PinterestService.getBoards().then((results) => {
             $rootScope.uid = results.uid;
             console.log("results in getFbBoards:", results);
         }).catch((err) => {
@@ -13,7 +14,7 @@ app.controller("BoardCtrl", function ( $location, $rootScope, $scope, PinterestS
     getBoards();
 
     const getPins = () => {
-        PinterestService.SOMEFUNC().then((results) => {
+        PinterestService.getPins().then((results) => {
             console.log("results in getFbPins:", results);
         }).catch((err) => {
             console.log("err in getFbPins:", err);
@@ -26,7 +27,7 @@ app.controller("BoardCtrl", function ( $location, $rootScope, $scope, PinterestS
     };
 
     $scope.goToCreateBoard = () => {
-        $location.path(`/createBoard`);
+        $location.path(`/singleBoard/create`);
     };
 
 });
