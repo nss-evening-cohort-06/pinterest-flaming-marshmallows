@@ -1,0 +1,19 @@
+.board {
+  height: 131px;
+  width: 255px; }
+
+.create_board {
+  position: relative; }
+
+.create_board_btn {
+  position: absolute;
+  top: 55px;
+  right: 110px; }
+
+.board_position {
+  position: relative; }
+
+.delete {
+  position: absolute;
+  top: 6px;
+  right: 10px; }
