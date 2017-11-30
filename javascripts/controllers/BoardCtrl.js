@@ -3,21 +3,21 @@
 app.controller("BoardCtrl", function ( $location, $rootScope, $scope, PinterestService ) {
 
     const getBoards = () => {
-        let boards = [];
-        PinterestService.getBoards().then((results) => {
-            $rootScope.uid = results.uid;
-            console.log("results in getFbBoards:", results);
-        }).catch((err) => {
-            console.log("err in getFbBoards:", err);
+        PinterestService.getBoards($rootScope.uid).then((results) => {
+        $scope.boards = results;
+        console.log("boards results:", results);
+        }).catch((error) => {
+        console.log("Error in PinterestService.getboards()", error);
         });
     };
     getBoards();
 
     const getPins = () => {
         PinterestService.getPins().then((results) => {
-            console.log("results in getFbPins:", results);
+            $scope.pins = results;
+            console.log("results in getPins:", results);
         }).catch((err) => {
-            console.log("err in getFbPins:", err);
+            console.log("err in getPins:", err);
         });
     };
     getPins();
