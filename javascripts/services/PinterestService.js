@@ -11,7 +11,6 @@ app.service("PinterestService", function ($http, $q, $rootScope, FIREBASE_CONFIG
           boards.push(fbBoards[key]);
         });
         resolve(boards);
-        console.log('boards', boards);
       }).catch((error) => {
         reject(error);
       });
@@ -28,7 +27,6 @@ app.service("PinterestService", function ($http, $q, $rootScope, FIREBASE_CONFIG
           pins.push(fbPins[key]);
         });
         resolve(pins);
-        console.log('pins', pins);
       }).catch((error) => {
         reject(error);
       });
@@ -66,4 +64,3 @@ app.service("PinterestService", function ($http, $q, $rootScope, FIREBASE_CONFIG
   return { getBoards, getPins, getSingleBoard, postNewBoard, postNewPin, deleteBoard, deletePin, updateBoard, updatePin };
 
 });
-
