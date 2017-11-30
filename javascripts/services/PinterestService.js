@@ -9,7 +9,6 @@ app.service("PinterestService", function ($http, $q, $rootScope, FIREBASE_CONFIG
         Object.keys(fbBoards).forEach((key) => {
           fbBoards[key].id = key;
           boards.push(fbBoards[key]);
-          console.log('my boards', boards);
         });
         resolve(boards);
       }).catch((error) => {
