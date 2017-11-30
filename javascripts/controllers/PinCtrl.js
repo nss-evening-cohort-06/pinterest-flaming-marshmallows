@@ -13,4 +13,9 @@ app.controller("PinCtrl", function ($rootScope, $scope, PinterestService) {
 
   // getPins();
 
+  $scope.showPinsForSingleBoard() = (pins) => {
+    
+
+  };
+
 });
