@@ -1,11 +1,37 @@
-# Using your mad Angular skillz - Pinterest Clone
+# Pinterest Clone
 
-You will be broken into teams and your goals is to reverse engineer the basic functionality of Pinterest and build your own version of it.
+We built a Pinterest-like app to show off our Angular skills!
 
-## Priorities
+In this app, the user should be able to view, edit and create boards and pins.
+ 
+Visit: [FIREBASE URL] 
 
-1. Firebase structure. Flat, flat, flat. - this must be approved before you start
-2. Authentication.
-3. Create board.
-4. Create pin to go on a board.
-5. Each member of your team should be responsible for at least 1 CRUD ticket and should see it through to the end.
+#### Project Requirements: 
+
+* AngularJS
+* Bootstrap
+* Sass
+* Firebase
+
+#### Getting Started
+
+```$ git clone git@github.com:nss-evening-cohort-06/pinterest-flaming-marshmallows.git```
+
+```$ npm install```
+
+```$ cd lib/```
+
+```$ grunt```
+
+and serve it up!
+
+#### Contributors
+
+[Kelly Stoops](https://github.com/kstoops815)
+
+[Dre Randaci](https://github.com/DreRandaci)
+
+[Robert Shock](https://github.com/RobertShock)
+
+[Amber Stuart](https://github.com/waamber)
+
