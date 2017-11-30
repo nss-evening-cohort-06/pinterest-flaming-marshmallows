@@ -31,8 +31,15 @@ app.controller("BoardCtrl", function ( $location, $rootScope, $routeParams, $sco
         }).catch((error) => {
             console.log("error in viewSingleBoard", error);
         });
-        
     };
+
+    $scope.showPinsForSingleBoard = (pins) => {
+        let boardId = $scope.board.name;
+        console.log("boardId", boardId);
+    };
+
+
+
 
   $scope.goToCreateBoard = () => {
     $location.path(`/singleBoard/create`);
