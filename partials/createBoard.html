@@ -1,0 +1,18 @@
+<div id='createBoard'>
+  <h1 class='text-center'>Create A Board!</h1>
+
+  <form name="newBoardForm">
+    <div class="form-group">
+      <label for="firstName">Board Name</label>
+      <input type="name" class="form-control" id="boardNameInput" ng-model="board.name" ng-required="true">
+    </div>
+
+    <div class="form-group">
+      <label for="firstName">Board Description</label>
+      <input type="name" class="form-control" id="boardDescriptionInput" ng-model="board.description" ng-required="true">
+    </div>
+
+    <button type="submit " class="btn btn-primary btn-lg btn-block " ng-click="submit()" ng-disabled="newBoardForm.$invalid">Submit</button>
+  </form>
+
+</div>

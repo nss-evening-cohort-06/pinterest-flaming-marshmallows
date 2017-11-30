@@ -1,12 +1,12 @@
 'use strict';
 
-app.controller("BoardCtrl", function ( $location, $rootScope, $scope, PinterestService ) {
+app.controller("BoardCtrl", function ($location, $rootScope, $scope, PinterestService) {
 
     const getBoards = () => {
         PinterestService.getBoards($rootScope.uid).then((results) => {
-        $scope.boards = results;
+            $scope.boards = results;
         }).catch((error) => {
-        console.log("Error in PinterestService.getboards()", error);
+            console.log("Error in PinterestService.getboards()", error);
         });
     };
     getBoards();
@@ -20,13 +20,13 @@ app.controller("BoardCtrl", function ( $location, $rootScope, $scope, PinterestS
     };
     getPins();
 
-    $scope.viewSingleBoard = (boardId) => {
-        $location.path(`/singleBoard/${boardId}`);
-    };
+  $scope.viewSingleBoard = (boardId) => {
+    $location.path(`/singleBoard/${boardId}`);
+  };
 
-    $scope.goToCreateBoard = () => {
-        $location.path(`/singleBoard/create`);
-    };
+  $scope.goToCreateBoard = () => {
+    $location.path(`/singleBoard/create`);
+  };
 
     $scope.deleteBoard = (boardId) => {
         console.log("boardId:", boardId);
