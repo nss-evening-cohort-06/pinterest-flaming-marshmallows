@@ -8,13 +8,13 @@ let isAuth = (AuthService) => new Promise((resolve, reject) => {
   }
 });
 
-app.run(function($location, $rootScope, FIREBASE_CONFIG, AuthService){
+app.run(function ($location, $rootScope, FIREBASE_CONFIG, AuthService) {
   firebase.initializeApp(FIREBASE_CONFIG);
   //watch method that fires on change of a route.  3 inputs. 
   //event is a change event
   //currRoute is information about your current route
   //prevRoute is information about the route you came from
-  $rootScope.$on('$routeChangeStart', function(event, currRoute, prevRoute) {
+  $rootScope.$on('$routeChangeStart', function (event, currRoute, prevRoute) {
     // checks to see if there is a current user
     var logged = AuthService.isAuthenticated();
 
@@ -53,12 +53,12 @@ app.config(function ($routeProvider) {
       resolve: { isAuth }
     })
     .when("/singleBoard/edit/:id", {
-      templateUrl: 'partials/singleBoard/editBoard.html',
+      templateUrl: 'partials/editBoard.html',
       controller: 'EditCtrl',
       resolve: { isAuth }
     })
-    .when("/singleBoard/create", {
-      templateUrl: 'partials/singleBoard/createBoard.html',
+    .when("/create", {
+      templateUrl: 'partials/createBoard.html',
       controller: 'CreateCtrl',
       resolve: { isAuth }
     })
@@ -72,7 +72,7 @@ app.config(function ($routeProvider) {
       controller: 'EditCtrl',
       resolve: { isAuth }
     })
-    .when("/pins/create", {
+    .when("/pincreate", {
       templateUrl: 'partials/createPin.html',
       controller: 'CreateCtrl',
       resolve: { isAuth }
