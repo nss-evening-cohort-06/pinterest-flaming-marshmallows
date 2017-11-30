@@ -1,20 +1,33 @@
 'use strict';
 
-app.controller("PinCtrl", function ($rootScope, $scope, PinterestService) {
+app.controller("PinCtrl", function ($event, $rootScope, $scope, PinterestService) {
 
-  // const getPins = () => {
-  //   PinterestService.getPins($rootScope.uid).then((results) => {
-  //     $scope.pins = results;
-  //   }).catch((error) => {
-  //     console.log("Error in PinterestService", error);
-  //   });
+  const showPins = () => {
+    PinterestService.getPins($rootScope.uid).then((results) => {
+      $scope.pins = results;
+    }).catch((error) => {
+      console.log("Error in PinterestService", error);
+    });
+  };
+
+
+  showPins();
+
+  // $scope.getBoardIdWhenClicked = (board) => {
+  //   let boardId = $event.target.board_name;
+  //   return boardId;
   // };
 
 
-  // getPins();
-
-  $scope.showPinsForSingleBoard() = (pins) => {
-    
+  $scope.showPinsForSingleBoard = (pins) => {
+    let boardId = $event.target.board_name;
+    PinterestService.getPins().then((pinId) => {
+      if(pins.board_id === boardId){
+        console.log("pins", pins);
+      }
+    }).catch((error )=> {
+      console.log("error in showPinsForSingleBoard", error);
+    });
 
   };
 
