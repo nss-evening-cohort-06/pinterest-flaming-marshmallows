@@ -1,0 +1,23 @@
+.board {
+  height: 131px;
+  width: 255px; }
+
+.create_board {
+  position: relative; }
+
+.create_board_btn {
+  position: absolute;
+  top: 55px;
+  right: 110px; }
+
+.board_position {
+  position: relative; }
+
+.delete {
+  text-align: right; }
+
+.edit {
+  float: left; }
+
+.tried {
+  text-align: right; }

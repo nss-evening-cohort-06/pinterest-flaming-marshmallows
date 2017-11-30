@@ -1,0 +1,18 @@
+<div class="text-center" id="myPins">
+    <h1> My Pins</h1>
+    <div class="input-group col-xs-6 col-xs-offset-3">
+    </div>
+</div>
+        <div id="pins"></div>
+            <div ng-repeat="pin in pins" class="col-sm-6 col-md-4 movie">
+                <div class="thumbnail">
+                    <h3 class="name">{{pin.name}}</h3>
+                    <p class="board_id">{{pin.board_id}}</p>
+                    <p>
+                        <button class="btn btn-primary edit glyphicon glyphicon-pencil" ng-click="editPin(pin.id)"></button>   
+                        <button class="btn btn-success tried glyphicon glyphicon-ok" ng-click="triedPin(pin.id)"></button>
+                        <button class="btn btn-danger delete glyphicon glyphicon-trash" ng-click="deletePin(pin.id)"></button>
+                    </p>
+                </div>
+            </div>
+    </div>
