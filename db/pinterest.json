@@ -1,22 +1,22 @@
 {
   "boards": {
     "board0": {
-      "name": "dogs",
+      "name": "Dogs",
       "description": "This is a board about the best companions on the planet, doges!",
       "uid": "7yzepbyVaOOaxtwJSqbhx2ZuVI43"
     },
     "board1": {
-      "name": "cats",
+      "name": "Cats",
       "description": "This is the devil's board. Cats are not great.",
       "uid": "t8urZ0o10lRh1NdL9Gr0GmiKq4f1"
     },
     "board2": {
-      "name": "moms",
+      "name": "Moms",
       "description": "We love our moms.",
       "uid": "0uK19IeKYIQA2C43syk6R87rhXm2"
     },
     "board3": {
-      "name": "sports",
+      "name": "Sports",
       "description": "All things sports!! GO SPORTS!",
       "uid": "Z01bnSMo7aepZPSMmoKFzUDzChw2"
 
