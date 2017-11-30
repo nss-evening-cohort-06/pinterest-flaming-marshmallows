@@ -12,14 +12,22 @@
     <h1>Boards</h1>
     <div id='boards'>
         <div ng-repeat="board in boards | filter: searchText" class="col-sm-6 col-md-4 board">
-            <div class="thumbnail board_position">
-                <button class='btn btn-danger delete' ng-click="deleteBoard(board.id)">X</button>
+            <div class="thumbnail board_position">   
+                <div class="edit">
+                    <button class='btn btn-sm btn-warning'>Edit</button>                                 
+                </div>
+                <div class="tried">
+                    <button class='btn btn-sm btn-default'>Tried</button> 
+                </div>                                
                 <a ng-click="viewSingleBoard(board.id)">
                     <div class="caption">
                         <h4>{{board.name}}</h4>
                         <p>{{board.description}}</p>            
                     </div>
-                </a>                    
+                </a>
+                <div class="delete">
+                    <button class='btn btn-sm btn-danger' ng-click="deleteBoard(board.id)">X</button>                    
+                </div>
             </div>            
         </div>
     </div>

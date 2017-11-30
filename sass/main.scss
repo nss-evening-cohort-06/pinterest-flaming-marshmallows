@@ -16,7 +16,11 @@
     position: relative;
 }
 .delete {
-    position: absolute;
-    top: 6px;
-    right: 10px;
+    text-align: right;
+}
+.edit {
+    float: left;
+}
+.tried {
+    text-align: right;
 }
