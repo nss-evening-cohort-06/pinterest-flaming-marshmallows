@@ -23,21 +23,14 @@ app.controller("BoardCtrl", function ( $location, $rootScope, $routeParams, $sco
     getPins();
 
     $scope.viewSingleBoard = (boardId) => {
-        PinterestService.getSingleBoard($routeParams.id).then((results) => {
-            $scope.board = results.data;
-            $location.path(`/singleBoard/${boardId}`);
-        }).catch((error) => {
-            console.log("error in viewSingleBoard", error);
-        });
+        $location.path(`/singleBoard/${boardId}`);
+        // PinterestService.getSingleBoard($routeParams.id).then((results) => {
+        //     console.log("in viewSingleBoard", results);
+        //     //$location.path(`/singleBoard/${boardId}`);
+        // }).catch((error) => {
+        //     console.log("error in viewSingleBoard", error);
+        // });
     };
-
-    $scope.showPinsForSingleBoard = (pins) => {
-        let boardId = $scope.board.name;
-        console.log("boardId", boardId);
-    };
-
-
-
 
   $scope.goToCreateBoard = () => {
     $location.path(`/singleBoard/create`);

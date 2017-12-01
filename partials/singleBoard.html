@@ -1,12 +1,16 @@
 <div class="text-center">
   <h1>{{board.name}}</h1>
   <h4>{{board.description}}</h4>
-  <div class="thumbnail singleBoardPins">
-    <h5></h5>
+  <div ng-repeat = "pin in pins">
+    <div class="thumbnail singleBoardPins">
+    <h5>{{pin.name}}</h5>
+    <p>{{pin.description}}</p>
+    <!-- <a href="{{pin,url}}"><p>{{pin.url}}</p></a> -->
+    
 
   </div>
 
 
 
-
+  </div>
 </div>
