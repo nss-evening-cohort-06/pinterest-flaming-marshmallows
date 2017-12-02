@@ -32,4 +32,8 @@ app.controller("BoardCtrl", function ($location, $rootScope, $scope, PinterestSe
         console.log("boardId:", boardId);
     };
 
+    $scope.goToCreatePin = () => {
+        $location.path(`/createPin`);
+    };
+
 });

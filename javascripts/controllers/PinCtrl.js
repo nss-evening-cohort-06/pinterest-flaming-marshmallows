@@ -20,12 +20,13 @@ app.controller("PinCtrl", function ($location, $rootScope, $scope, $routeParams,
         });
     };
 
-    $scope.editPin = (PinId) => {
-        $location.path(`/boards/pins/edit/${$routeParams.id}`);
+    $scope.editPin = (pinId) => {
+        console.log(pinId);
+        // $location.path(`/boards/pins/edit/${pinId}`);
       };
 
       $scope.moveToTried = (boardId) => {
-        $location.path(`/boards/tried/${$routeParams.id}`);
+        $location.path(`/boards/tried/${boardId}`);
       };
 
     $scope.pinDetail = (pinId) => {
