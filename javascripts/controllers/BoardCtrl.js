@@ -4,42 +4,36 @@ app.controller("BoardCtrl", function ( $location, $rootScope, $routeParams, $sco
 
     $scope.board = {};
     $scope.pins = {};
+    $scope.pinsWithIds = {};
 
-  const getBoards = () => {
-    PinterestService.getBoards($rootScope.uid).then((results) => {
-      $scope.boards = results;
-    }).catch((error) => {
-      console.log("Error in PinterestService.getboards()", error);
-    });
-  };
-  getBoards();
+    const getBoards = () => {
+        PinterestService.getBoards($rootScope.uid).then((results) => {
+            $scope.boards = results;
+            getPins();
+        }).catch((error) => {
+            console.log("Error in PinterestService.getboards()", error);
+        });
+    };
+    getBoards();
 
-  const getPins = () => {
-    PinterestService.getPins().then((results) => {
-      $scope.pins = results;
-    }).catch((err) => {
-      console.log("err in getPins:", err);
-    });
-  };
-  getPins();
-
-    $scope.viewSingleBoard = (board) => {
+    const getPins = () => {
         PinterestService.getPins().then((results) => {
             $scope.pins = results;
-            console.log("$scope.pins", $scope.pins);
-        let pinsWithIds = [];
-        console.log("board.name", `${board.name}`);
-        //$location.path(`/singleBoard/${boardId}`);
-        $scope.pins.forEach((pin) => {
-            if(`${board.name}` === pin.board_id) {
-            pinsWithIds.push($scope.pins);
-            }
+        }).catch((err) => {
+            console.log("err in getPins:", err);
         });
-            console.log("pinsWithIds", pinsWithIds);
-        });
-        
-        
     };
+    
+
+    $scope.getSingleBoard = (board) => {
+        console.log("in getSingleBoard");
+        PinterestService.getAllPinsWithSingleBoard(board).then((results) => {
+            $scope.pinsWithIds = results;
+            console.log("pinsWithIds", $scope.pinsWithIds);
+            $location.path(`/singleBoard/${board.name}`);
+        });
+    };
+        
 
   $scope.goToCreateBoard = () => {
     $location.path(`/create`);

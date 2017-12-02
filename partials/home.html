@@ -11,7 +11,7 @@
     </div>
     <h1>Boards</h1>
     <div id='boards'>
-        <div ng-repeat="board in boards | filter: searchText" class="col-sm-6 col-md-4 board" ng-click="viewSingleBoard(board.id)">
+        <div ng-repeat="board in boards | filter: searchText" class="col-sm-6 col-md-4 board" ng-click="getSingleBoard(board)">
             <div class="thumbnail board_position">   
                 <div class="edit">
                     <button class="btn btn-primary editBoard" ng-click="editBoard(board.id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
