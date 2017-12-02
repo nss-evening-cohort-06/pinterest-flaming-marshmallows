@@ -3,6 +3,7 @@
 app.controller("BoardCtrl", function ( $location, $rootScope, $routeParams, $scope, PinterestService ) {
 
     $scope.board = {};
+    $scope.pins = {};
 
     const getBoards = () => {
         PinterestService.getBoards($rootScope.uid).then((results) => {
@@ -22,14 +23,22 @@ app.controller("BoardCtrl", function ( $location, $rootScope, $routeParams, $sco
     };
     getPins();
 
-    $scope.viewSingleBoard = (boardId) => {
-        $location.path(`/singleBoard/${boardId}`);
-        // PinterestService.getSingleBoard($routeParams.id).then((results) => {
-        //     console.log("in viewSingleBoard", results);
-        //     //$location.path(`/singleBoard/${boardId}`);
-        // }).catch((error) => {
-        //     console.log("error in viewSingleBoard", error);
-        // });
+    $scope.viewSingleBoard = (board) => {
+        PinterestService.getPins().then((results) => {
+            $scope.pins = results;
+            console.log("$scope.pins", $scope.pins);
+        let pinsWithIds = [];
+        console.log("board.name", `${board.name}`);
+        //$location.path(`/singleBoard/${boardId}`);
+        $scope.pins.forEach((pin) => {
+            if(`${board.name}` === pin.board_id) {
+            pinsWithIds.push($scope.pins);
+            }
+        });
+            console.log("pinsWithIds", pinsWithIds);
+        });
+        
+        
     };
 
   $scope.goToCreateBoard = () => {

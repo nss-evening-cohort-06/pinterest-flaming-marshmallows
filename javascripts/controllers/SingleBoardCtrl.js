@@ -13,22 +13,23 @@ app.controller("SingleBoardCtrl", function($location, $rootScope, $routeParams, 
         
     };
 
+    getBoard();
 
-    // $scope.showPinsForSingleBoard = (event, boardId) => {
-    //     getBoard();
-    //     let singleBoardId = $scope.board.id;
-    //     console.log("boardId in showPinsForSingleBoard", singleBoardId);        
-    //     PinterestService.getPins().then((pins) => {
-    //         let pinId = pins.board_id;
-    //         singleBoardId.forEach((pin)=>{
-    //         if(pinId === singleBoardId) {
-    //             console.log("pins from showPinsForSingleBoard", pins);
-    //             }
-    //         });
-    //     });
-    // };
+    $scope.showPinsForSingleBoard = () => {
+        console.log("in showPinsForSingleBoard");
+        let singleBoardId = $scope.board.id;
+        console.log("boardId in showPinsForSingleBoard", singleBoardId);        
+        PinterestService.getPins().then((pins) => {
+            let pinId = pins.board_id;
+            singleBoardId.forEach((pin)=>{
+            if(pinId === singleBoardId) {
+                console.log("pins from showPinsForSingleBoard", pins);
+                }
+            });
+        });
+    };
 
-getBoard();
+
 
 });
 
