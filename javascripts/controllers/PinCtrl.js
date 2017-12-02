@@ -22,11 +22,21 @@ app.controller("PinCtrl", function ($location, $rootScope, $scope, $routeParams,
 
     $scope.editPin = (PinId) => {
         $location.path(`/boards/pins/edit/${$routeParams.id}`);
-      };
+    };
 
-      $scope.moveToTried = (boardId) => {
+    $scope.makeTried = (pin, pinId) => {
+        pin.tried = pin.tried ? false : true;
+        let triedPin = PinterestService.createPinObj(pin);
+        PinterestService.updatePin(triedPin, pinId).then(() => {
+            getPins();
+        }).catch((err) => {
+            console.log('error in updatePin:', err);
+        });
+    };
+
+    $scope.moveToTried = (boardId) => {
         $location.path(`/boards/tried/${$routeParams.id}`);
-      };
+    };
 
     $scope.pinDetail = (pinId) => {
         $location.path(`/pin/${pinId}`);

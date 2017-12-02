@@ -20,7 +20,7 @@ app.service("PinterestService", function ($http, $q, $rootScope, FIREBASE_CONFIG
   const getPins = (userUid) => {
     let pins = [];
     return $q((resolve, reject) => {
-      $http.get(`${FIREBASE_CONFIG.databaseURL}/boards/pins.json`).then((results) => {
+      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json`).then((results) => {
         let fbPins = results.data;
         Object.keys(fbPins).forEach((key) => {
           fbPins[key].id = key;
@@ -31,6 +31,34 @@ app.service("PinterestService", function ($http, $q, $rootScope, FIREBASE_CONFIG
         reject(error);
       });
     });
+  };
+
+  const getTriedPins = (userUid) => {
+    let triedPins = [];
+    return $q((resolve, reject) => {
+      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json`).then((results) => {
+        let fbPins = results.data;
+        Object.keys(fbPins).forEach((key) => {
+          fbPins[key].id = key;
+          if (fbPins[key].tried) {
+            triedPins.push(fbPins[key]);
+          }
+          resolve(triedPins);
+        });
+      }).catch((error) => {
+        reject(error);
+      });
+    });
+  };
+
+
+  const createPinObj = (pin) => {
+    return {
+      "name": pin.name,
+      "board_id": pin.board_id,
+      "tried": pin.tried,
+      "url": pin.url
+    };
   };
 
   const getSingleBoard = (boardId) => {
@@ -50,17 +78,17 @@ app.service("PinterestService", function ($http, $q, $rootScope, FIREBASE_CONFIG
   };
 
   const postNewPin = (newPin) => {
-    return $http.post(`${FIREBASE_CONFIG.databaseURL}/boards/pins.json`, JSON.stringify(newPin));
+    return $http.post(`${FIREBASE_CONFIG.databaseURL}/pins.json`, JSON.stringify(newPin));
   };
 
   const updatePin = (pin, pinId) => {
-    return $http.put(`${FIREBASE_CONFIG.databaseURL}/boards/pins/${pinId}.json`, JSON.stringify(pin));
+    return $http.put(`${FIREBASE_CONFIG.databaseURL}/pins/${pinId}.json`, JSON.stringify(pin));
   };
 
   const deletePin = (pinId) => {
-    return $http.delete(`${FIREBASE_CONFIG.databaseURL}/boards/pins/${pinId}.json`);
+    return $http.delete(`${FIREBASE_CONFIG.databaseURL}/pins/${pinId}.json`);
   };
 
-  return { getBoards, getPins, getSingleBoard, postNewBoard, postNewPin, deleteBoard, deletePin, updateBoard, updatePin };
+  return { getBoards, getPins, getSingleBoard, postNewBoard, postNewPin, deleteBoard, deletePin, updateBoard, updatePin, getTriedPins, createPinObj };
 
 });
