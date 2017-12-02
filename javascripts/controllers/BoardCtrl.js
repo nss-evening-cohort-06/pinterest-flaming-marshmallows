@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller("BoardCtrl", function ($location, $rootScope, $scope, PinterestService) {
+app.controller("BoardCtrl", function ($routeParams, $location, $rootScope, $scope, PinterestService) {
 
     const getBoards = () => {
         PinterestService.getBoards($rootScope.uid).then((results) => {
@@ -20,11 +20,11 @@ app.controller("BoardCtrl", function ($location, $rootScope, $scope, PinterestSe
     };
     getPins();
 
-  $scope.viewSingleBoard = (boardId) => {
-    $location.path(`/singleBoard/${boardId}`);
+  $scope.viewSingleBoard = (boardName) => {
+    $location.path(`/singleBoard/${boardName}`);
   };
 
-  $scope.goToCreateBoard = () => {
+  $scope.goToCreateBoard = () => {      
     $location.path(`/singleBoard/create`);
   };
 
@@ -33,7 +33,7 @@ app.controller("BoardCtrl", function ($location, $rootScope, $scope, PinterestSe
     };
 
     $scope.goToCreatePin = () => {
-        $location.path(`/createPin`);
+        $location.path(`/pincreate/${$routeParams.id}`);
     };
 
 });

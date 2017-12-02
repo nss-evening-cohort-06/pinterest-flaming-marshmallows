@@ -20,7 +20,7 @@ app.service("PinterestService", function ($http, $q, $rootScope, FIREBASE_CONFIG
   const getPins = (userUid) => {
     let pins = [];
     return $q((resolve, reject) => {
-      $http.get(`${FIREBASE_CONFIG.databaseURL}/boards/pins.json`).then((results) => {
+      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json`).then((results) => {
         let fbPins = results.data;
         Object.keys(fbPins).forEach((key) => {
           fbPins[key].id = key;
@@ -50,7 +50,7 @@ app.service("PinterestService", function ($http, $q, $rootScope, FIREBASE_CONFIG
   };
 
   const postNewPin = (newPin) => {
-    return $http.post(`${FIREBASE_CONFIG.databaseURL}/boards/pins.json`, JSON.stringify(newPin));
+    return $http.post(`${FIREBASE_CONFIG.databaseURL}/pins.json`, JSON.stringify(newPin));
   };
 
   const updatePin = (pin, pinId) => {
