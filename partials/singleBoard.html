@@ -1,4 +1,5 @@
-<div class="text-center">
+	<h1>{{boardName}}</h1>
+	<div class="text-center">
     <h1>Create Pin</h1>
     <div>            
         <div class="container col-md-4 col-xs-offset-4">                    
@@ -8,4 +9,17 @@
             </div>
         </div>
     </div>
+	<div class="pins">
+	            <div ng-repeat="pinsWithId in pinsWithIds" class="col-sm-6 col-md-4">
+	                <div class="thumbnail">
+	                    <h3 class="name">{{pinsWithId.name}}</h3>
+	                    <p class="board_id">{{pinsWithId.board_id}}</p>
+	                    <p>
+	                        <button class="btn btn-primary edit glyphicon glyphicon-pencil" ng-click="editPin(pin.id)"></button>   
+	                        <button class="btn btn-success tried glyphicon glyphicon-ok" ng-click="triedPin(pin.id)"></button>
+	                        <button class="btn btn-danger delete glyphicon glyphicon-trash" ng-click="deletePin(pin.id)"></button>
+	                    </p>
+	                </div>
+	            </div>
+	    </div>
 </div>

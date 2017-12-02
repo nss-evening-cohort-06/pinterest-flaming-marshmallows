@@ -49,7 +49,7 @@ app.config(function ($routeProvider) {
     })
     .when("/singleBoard/:id", {
       templateUrl: 'partials/singleBoard.html',
-      controller: 'BoardCtrl',
+      controller: 'SingleBoardCtrl',
       resolve: { isAuth }
     })
     .when("/singleBoard/edit/:id", {
