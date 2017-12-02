@@ -20,12 +20,13 @@ app.controller("BoardCtrl", function ($routeParams, $location, $rootScope, $scop
   };
   getPins();
 
-  $scope.viewSingleBoard = (boardName) => {
-    $location.path(`/singleBoard/${boardName}`);
+  $scope.viewSingleBoard = (board) => {
+    
+    $location.path(`/singleBoard/${board.name}`);
   };
 
   $scope.goToCreateBoard = () => {      
-    $location.path(`/singleBoard/create`);
+    $location.path(`/create`);
   };
 
   $scope.deleteBoard = (boardId) => {
