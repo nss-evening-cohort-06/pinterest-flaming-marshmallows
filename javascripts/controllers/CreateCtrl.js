@@ -5,7 +5,6 @@ app.controller("CreateCtrl", function ($routeParams, $location, $rootScope, $sco
     $scope.submitNewPin = (pin) => {
         let newPin = createPinObject(pin);
         PinterestService.postNewPin(newPin).then((results) => {
-          console.log(results);
         });
     };
     const createPinObject = (pin) => {
