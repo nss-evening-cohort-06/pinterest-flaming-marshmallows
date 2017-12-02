@@ -33,7 +33,7 @@ app.service("PinterestService", function ($http, $q, $rootScope, FIREBASE_CONFIG
     });
   };
 
-  const getTriedPins = (userUid) => {
+  const getTriedPins = () => {
     let triedPins = [];
     return $q((resolve, reject) => {
       $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json`).then((results) => {
