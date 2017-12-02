@@ -27,11 +27,7 @@ app.controller("BoardCtrl", function ( $location, $rootScope, $routeParams, $sco
 
     $scope.getSingleBoard = (board) => {
         console.log("in getSingleBoard");
-        PinterestService.getAllPinsWithSingleBoard(board).then((results) => {
-            $scope.pinsWithIds = results;
-            console.log("pinsWithIds", $scope.pinsWithIds);
-            $location.path(`/singleBoard/${board.name}`);
-        });
+        $location.path(`/singleBoard/${board.name}`);
     };
         
 
