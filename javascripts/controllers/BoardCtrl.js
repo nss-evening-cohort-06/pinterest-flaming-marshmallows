@@ -24,19 +24,19 @@ app.controller("BoardCtrl", function ( $location, $rootScope, $routeParams, $sco
         });
     };
     
-
     $scope.getSingleBoard = (board) => {
         console.log("in getSingleBoard");
         $location.path(`/singleBoard/${board.name}`);
     };
-        
 
-  $scope.goToCreateBoard = () => {
+  $scope.goToCreateBoard = () => {      
     $location.path(`/create`);
   };
 
   $scope.deleteBoard = (boardId) => {
     console.log("boardId:", boardId);
   };
+
+    
 
 });

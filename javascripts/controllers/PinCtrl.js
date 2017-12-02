@@ -19,7 +19,7 @@ app.controller("PinCtrl", function ($location, $rootScope, $scope, $routeParams,
             console.log("error in deletePin", err);
         });
     };
-
+    
     $scope.editPin = (PinId) => {
         $location.path(`/boards/pins/edit/${$routeParams.id}`);
     };
@@ -37,6 +37,7 @@ app.controller("PinCtrl", function ($location, $rootScope, $scope, $routeParams,
     $scope.moveToTried = (boardId) => {
         $location.path(`/boards/tried/${$routeParams.id}`);
     };
+
 
     $scope.pinDetail = (pinId) => {
         $location.path(`/pin/${pinId}`);

@@ -72,7 +72,7 @@ app.config(function ($routeProvider) {
       controller: 'EditCtrl',
       resolve: { isAuth }
     })
-    .when("/pincreate", {
+    .when("/pincreate/:id", {
       templateUrl: 'partials/createPin.html',
       controller: 'CreateCtrl',
       resolve: { isAuth }

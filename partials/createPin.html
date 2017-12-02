@@ -1,0 +1,11 @@
+<div class="container text-center">
+
+    <form class="form-group" name="create_contact">
+        <div class="col-md-6 col-md-offset-3">
+            <input type="text" class="form-control" id="inputPinName" placeholder="Pin Name" ng-model="pin.name" ng-required="true">
+            <input type="text" class="form-control" id="inputPinUrl" placeholder="Pin Url" ng-model="pin.url" ng-required="true">
+            <button ng-disabled="create_contact.$invalid" type="button" class="btn btn-default" ng-click="submitNewPin(pin)">Save Pin</button>
+        </div>
+    </form>        
+
+</div>

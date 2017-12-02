@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("SingleBoardCtrl", function($routeParams, $scope, PinterestService) {
+app.controller("SingleBoardCtrl", function($location, $routeParams, $scope, PinterestService) {
 
 	const showPinsForSingleBoard = () => {
 		PinterestService.getAllPinsWithSingleBoard($routeParams.id).then((results) => {
@@ -11,6 +11,10 @@ app.controller("SingleBoardCtrl", function($routeParams, $scope, PinterestServic
 	};
 
 	showPinsForSingleBoard();
+
+	$scope.goToCreatePin = () => {
+        $location.path(`/pincreate/${$routeParams.id}`);
+    };
 
 
 	
