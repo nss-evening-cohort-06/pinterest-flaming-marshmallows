@@ -1,17 +1,8 @@
-<div class="text-center" id="myPins">
-    <h1>Create Pin</h1>
-    <div>            
-        <div class="container col-md-4 col-xs-offset-4">                    
-            <div class="thumbnail pin create_pin">
-                <h4>Add Pin</h4>
-                <button class="btn btn-default create_pin_btn" ng-click="goToCreatePin()">+</button>
-            </div>
-        </div>
-    </div>    
+<div class="text-center" id="myPins">   
     <div class="input-group col-xs-6 col-xs-offset-3">
         <h1> My Pins</h1>
         <div id="pins">
-            <div ng-repeat="pin in pins" class="col-sm-6 col-md-4 movie">
+            <div ng-repeat="pin in pins" class="col-sm-6 col-md-4">
                 <div class="thumbnail">
                     <h3 class="name">{{pin.name}}</h3>
                     <p class="board_id">{{pin.board_id}}</p>
