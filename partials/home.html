@@ -1,9 +1,9 @@
 <div class='text-center' id='home'>
     <div class="input-group input-group-lg col-xs-6 col-xs-offset-3">
-        <div id="createBoard">            
-            <div class="container col-md-6 col-xs-offset-3">                    
+        <div id="createBoard">
+            <div class="container col-md-6 col-xs-offset-3">
                 <div class="thumbnail board create_board">
-                        <h4>Add Board</h4>
+                    <h4>Add Board</h4>
                     <button class="btn btn-default create_board_btn" ng-click="goToCreateBoard()">+</button>
                 </div>
             </div>
@@ -11,22 +11,21 @@
     </div>
     <h1>Boards</h1>
     <div id='boards'>
-        <div ng-repeat="board in boards | filter: searchText" ng-click="viewSingleBoard(board.name)" class="col-sm-6 col-md-4 board">
-            <div class="thumbnail board_position">   
+        <div ng-repeat="board in boards | filter: searchText" class="col-sm-6 col-md-4 board">
+            <div class="thumbnail board_position">
                 <div class="edit">
-                    <button class='btn btn-sm btn-warning'>Edit</button>                                 
+                    <button class="btn btn-primary editBoard" ng-click="editBoard(board.id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 </div>
-                <div class="tried">
-                    <button class='btn btn-sm btn-default'>Tried</button> 
-                </div>                                
+                <a ng-click="viewSingleBoard(board.name)">
                     <div class="caption">
                         <h4>{{board.name}}</h4>
-                        <p>{{board.description}}</p>            
+                        <p>{{board.description}}</p>
                     </div>
+                </a>
                 <div class="delete">
-                    <button class='btn btn-sm btn-danger' ng-click="deleteBoard(board.id)">X</button>                    
+                    <button class='btn btn-sm btn-danger' ng-click="deleteBoard(board.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 </div>
-            </div>            
+            </div>
         </div>
     </div>
 </div>

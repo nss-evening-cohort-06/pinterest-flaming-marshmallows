@@ -19,15 +19,25 @@ app.controller("PinCtrl", function ($location, $rootScope, $scope, $routeParams,
             console.log("error in deletePin", err);
         });
     };
+    
+    $scope.editPin = (PinId) => {
+        $location.path(`/boards/pins/edit/${$routeParams.id}`);
+    };
 
-    $scope.editPin = (pinId) => {
-        console.log(pinId);
-        // $location.path(`/boards/pins/edit/${pinId}`);
-      };
+    $scope.makeTried = (pin, pinId) => {
+        pin.tried = pin.tried ? false : true;
+        let triedPin = PinterestService.createPinObj(pin);
+        PinterestService.updatePin(triedPin, pinId).then(() => {
+            getPins();
+        }).catch((err) => {
+            console.log('error in updatePin:', err);
+        });
+    };
 
-      $scope.moveToTried = (boardId) => {
-        $location.path(`/boards/tried/${boardId}`);
-      };
+    $scope.moveToTried = (boardId) => {
+        $location.path(`/boards/tried/${$routeParams.id}`);
+    };
+
 
     $scope.pinDetail = (pinId) => {
         $location.path(`/pin/${pinId}`);
