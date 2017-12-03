@@ -28,8 +28,8 @@ app.controller("SingleBoardCtrl", function($location, $routeParams, $rootScope, 
   };
 	
   	$scope.editPin = (pinId) => {
-  		console.log("pin in editPin", pinId);
-    	$location.path(`pins/editSingleBoardPin/${$routeParams.id}`);
+  		console.log("pinId in editPin", pinId);
+    	$location.path(`pins/editSingleBoardPin/${pinId}`);
     };
 
 

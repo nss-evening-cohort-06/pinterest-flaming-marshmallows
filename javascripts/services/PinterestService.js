@@ -62,6 +62,7 @@ app.service("PinterestService", function($http, $q, $rootScope, FIREBASE_CONFIG)
         console.log("fbPins", fbPins);
         Object.keys(fbPins).forEach((key) => {
           if (fbPins[key].board_id === board) {
+            fbPins[key].id = key;
             pinsWithIds.push(fbPins[key]);
           }
         });
