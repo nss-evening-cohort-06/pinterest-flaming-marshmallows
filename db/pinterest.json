@@ -24,75 +24,87 @@
   "pins": {
     "pin0": {
       "name": "Dog Stuff",
-      "board_id": "Dogs",
+      "board_id": "board0",
       "tried": true,
-      "url": "https://www.petfinder.com/dogs/"
+      "url": "https://www.petfinder.com/dogs/",
+      "uid": "7yzepbyVaOOaxtwJSqbhx2ZuVI43"
     },
     "pin1": {
       "name": "Dog toys",
-      "board_id": "Dogs",
+      "board_id": "board0",
       "tried": false,
-      "url": "https://www.petfinder.com/dogs/"
+      "url": "https://www.petfinder.com/dogs/",
+      "uid": "t8urZ0o10lRh1NdL9Gr0GmiKq4f1"
     },
     "pin2": {
       "name": "Dogs with other dogs",
-      "board_id": "Dogs",
+      "board_id": "board0",
       "tried": true,
-      "url": "https://www.petfinder.com/dogs/"
+      "url": "https://www.petfinder.com/dogs/",
+      "uid": "Z01bnSMo7aepZPSMmoKFzUDzChw2"
     },
     "pin3": {
       "name": "Mom Stuff",
-      "board_id": "Moms",
+      "board_id": "board2",
       "tried": true,
-      "url": "http://www.thenashvillemom.com/make-new-mama-friends/"
+      "url": "http://www.thenashvillemom.com/make-new-mama-friends/",
+      "uid": "0uK19IeKYIQA2C43syk6R87rhXm2",
     },
     "pin4": {
       "name": "Shopping with mom",
-      "board_id": "Moms",
+      "board_id": "board2",
       "tried": false,
-      "url": "http://www.thenashvillemom.com/make-new-mama-friends/"
+      "url": "http://www.thenashvillemom.com/make-new-mama-friends/",
+      "uid": "Z01bnSMo7aepZPSMmoKFzUDzChw2"
     },
     "pin5": {
       "name": "Happy Mother's Day",
-      "board_id": "Moms",
+      "board_id": "board2",
       "tried": true,
-      "url": "http://www.thenashvillemom.com/make-new-mama-friends/"
+      "url": "http://www.thenashvillemom.com/make-new-mama-friends/",
+      "uid": "0uK19IeKYIQA2C43syk6R87rhXm2"
     },
     "pin6": {
       "name": "Cat Stuff",
-      "board_id": "Cats",
+      "board_id": "board1",
       "tried": true,
-      "url": "http://www.vetstreet.com/cats/"
+      "url": "http://www.vetstreet.com/cats/",
+      "uid": "7yzepbyVaOOaxtwJSqbhx2ZuVI43"
     },
     "pin7": {
       "name": "Cat toys",
-      "board_id": "Cats",
+      "board_id": "board1",
       "tried": true,
-      "url": "http://www.vetstreet.com/cats/"
+      "url": "http://www.vetstreet.com/cats/",
+      "uid": "0uK19IeKYIQA2C43syk6R87rhXm2"
     },
     "pin8": {
       "name": "Cats with other cats",
-      "board_id": "Cats",
+      "board_id": "board1",
       "tried": true,
-      "url": "http://www.vetstreet.com/cats/"
+      "url": "http://www.vetstreet.com/cats/",
+      "uid": "Z01bnSMo7aepZPSMmoKFzUDzChw2"
     },
     "pin9": {
       "name": "Sports Stuff",
-      "board_id": "Sports",
+      "board_id": "board3",
       "tried": true,
-      "url": "http://www.espn.com/"
+      "url": "http://www.espn.com/",
+      "uid": "t8urZ0o10lRh1NdL9Gr0GmiKq4f1"
     },
     "pin10": {
       "name": "Football",
-      "board_id": "Sports",
+      "board_id": "board3",
       "tried": true,
-      "url": "http://www.espn.com/"
+      "url": "http://www.espn.com/",
+      "uid": "t8urZ0o10lRh1NdL9Gr0GmiKq4f1"
     },
     "pin11": {
       "name": "Hockey",
-      "board_id": "Sports",
+      "board_id": "board3",
       "tried": true,
-      "url": "http://www.espn.com/"
+      "url": "http://www.espn.com/",
+      "uid": "7yzepbyVaOOaxtwJSqbhx2ZuVI43"
     }
   }
 }

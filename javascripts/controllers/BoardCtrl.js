@@ -25,7 +25,11 @@ app.controller("BoardCtrl", function ( $location, $rootScope, $routeParams, $sco
     };
     
     $scope.getSingleBoard = (board) => {
-        console.log("in getSingleBoard");
+        PinterestService.getAllPinsWithSingleBoard(board.id).then((hokay) => {
+            console.log(hokay);
+        }).catch((err) => {
+            console.log("err in getAllPinsWithSingleBoard:", err);
+        });
         $location.path(`/singleBoard/${board.name}`);
     };
 
