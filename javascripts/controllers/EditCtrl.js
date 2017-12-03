@@ -22,10 +22,11 @@ app.controller("EditCtrl", function ($location, $routeParams, $scope, PinterestS
 		});
 	};
 
-	$scope.submitNewPinToSingleBoard = (board, pin, $$hashkey) => {
+	$scope.submitNewPinToSingleBoard = (board, pin, pinId) => {
+		console.log("pin in submitNewPinToSingleBoard", pin);
 		let pinToEdit = PinterestService.createPinObj(pin);
-		PinterestService.updatePin(pinToEdit, $routeParams.$$hashkey).then(() => {
-			console.log("pinToEdit", pinToEdit);
+		console.log("pin to edit in EditCtrl", pinToEdit);
+		PinterestService.updatePin(pinToEdit, $routeParams.id).then(() => {
 			$location.path(`/singleBoard/${board.name}`);
 		}).catch((error) => {
 			console.log("error in submitNewPin", error);

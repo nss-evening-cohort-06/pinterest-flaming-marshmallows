@@ -57,8 +57,8 @@ app.config(function ($routeProvider) {
       controller: 'EditCtrl',
       resolve: { isAuth }
     })
-    .when("/singleBoard/editPin/:id", {
-      templateUrl: 'partials/editPinOnSingleBoard.html',
+    .when("/pins/editSingleBoardPin/:id", {
+      templateUrl: 'partials/editSingleBoardPin.html',
       controller: 'EditCtrl',
       resolve: { isAuth }
     })
