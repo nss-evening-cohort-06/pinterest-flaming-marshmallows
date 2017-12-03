@@ -24,7 +24,7 @@ app.controller("TriedCtrl", function ($location, $rootScope, $scope, PinterestSe
   };
 
   $scope.editPin = (pinId) => {
-        $location.path(`pins/editTriedPin/${pinId}`);
+        $location.path(`pins/edit/${pinId}`);
     };
 
 });

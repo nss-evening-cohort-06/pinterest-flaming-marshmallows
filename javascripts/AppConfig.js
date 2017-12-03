@@ -57,11 +57,6 @@ app.config(function ($routeProvider) {
       controller: 'EditCtrl',
       resolve: { isAuth }
     })
-    .when("/pins/editSingleBoardPin/:id", {
-      templateUrl: 'partials/editSingleBoardPin.html',
-      controller: 'EditCtrl',
-      resolve: { isAuth }
-    })
     .when("/create", {
       templateUrl: 'partials/createBoard.html',
       controller: 'CreateCtrl',
@@ -85,11 +80,6 @@ app.config(function ($routeProvider) {
     .when("/tried", {
       templateUrl: 'partials/tried.html',
       controller: 'TriedCtrl',
-      resolve: { isAuth }
-    })
-    .when("/pins/editTriedPin/:id", {
-      templateUrl: "partials/editTriedPin.html",
-      controller: 'EditCtrl',
       resolve: { isAuth }
     })
 
