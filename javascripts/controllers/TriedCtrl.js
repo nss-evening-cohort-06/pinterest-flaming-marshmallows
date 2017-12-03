@@ -13,6 +13,7 @@ app.controller("TriedCtrl", function ($rootScope, $scope, PinterestService) {
   getPins();
 
   $scope.makeTried = (pin, pinId) => {
+    console.log("pins in TriedCtrl", pin);
     pin.tried = pin.tried ? false : true;
     let triedPin = PinterestService.createPinObj(pin);
     PinterestService.updatePin(triedPin, pinId).then(() => {

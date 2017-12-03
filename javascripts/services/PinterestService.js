@@ -87,6 +87,10 @@ app.service("PinterestService", function($http, $q, $rootScope, FIREBASE_CONFIG)
     return $http.get(`${FIREBASE_CONFIG.databaseURL}/boards/${boardId}.json`);
   };
 
+  const getSinglePin = (pinId) => {
+    return $http.get(`${FIREBASE_CONFIG.databaseURL}/pins/${pinId}.json`);
+  };
+
   const postNewBoard = (newBoard) => {
     return $http.post(`${FIREBASE_CONFIG.databaseURL}/boards.json`, JSON.stringify(newBoard));
   };
@@ -123,7 +127,8 @@ app.service("PinterestService", function($http, $q, $rootScope, FIREBASE_CONFIG)
     updatePin,
     getTriedPins,
     createPinObj,
-    getAllPinsWithSingleBoard
+    getAllPinsWithSingleBoard,
+    getSinglePin
   };
 
 });

@@ -15,9 +15,12 @@
 	                    <h3 class="name">{{pinsWithId.name}}</h3>
 	                    <p class="board_id">{{pinsWithId.board_id}}</p>
 	                    <p>
-	                        <button class="btn btn-primary edit glyphicon glyphicon-pencil" ng-click="editPin(pin.id)"></button>   
-	                        <button class="btn btn-success tried glyphicon glyphicon-ok" ng-click="triedPin(pin.id)"></button>
-	                        <button class="btn btn-danger delete glyphicon glyphicon-trash" ng-click="deletePin(pin.id)"></button>
+	                        <div class="btn-toolbar" role="toolbar" aria-label="...">
+                            <button class="btn btn-primary edit" ng-click="editPin(pinsWithId.id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            <button ng-if="!pinsWithId.tried" class="btn btn-success tried" ng-click="makeTried(pinsWithId,pinsWithId.id)"><i class="fa fa-check-circle-o"></i></button>
+                            <button ng-if="pinsWithId.tried" class="btn btn-success tried" ng-click="makeTried(pinsWithId,pinsWithId.id)"><i class="fa fa-check-circle"></i></button>
+                            <button class="btn btn-danger delete" ng-click="deletePin(pinsWithId.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        </div>
 	                    </p>
 	                </div>
 	            </div>

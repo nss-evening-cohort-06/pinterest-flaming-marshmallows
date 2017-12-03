@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("SingleBoardCtrl", function($location, $routeParams, $scope, PinterestService) {
+app.controller("SingleBoardCtrl", function($location, $routeParams, $rootScope, $scope, PinterestService) {
 
 	const showPinsForSingleBoard = () => {
 		PinterestService.getAllPinsWithSingleBoard($routeParams.id).then((results) => {
@@ -16,7 +16,16 @@ app.controller("SingleBoardCtrl", function($location, $routeParams, $scope, Pint
         $location.path(`/pincreate/${$routeParams.id}`);
     };
 
-
+  $scope.makeTried = (pin, pinId) => {
+  	console.log("pin in makeTried", pin);
+    pin.tried = pin.tried ? false : true;
+    let triedPin = PinterestService.createPinObj(pin);
+    PinterestService.updatePin(triedPin, pinId).then(() => {
+      showPinsForSingleBoard();
+    }).catch((err) => {
+      console.log('error in updatePin:', err);
+    });
+  };
 	
 
 
