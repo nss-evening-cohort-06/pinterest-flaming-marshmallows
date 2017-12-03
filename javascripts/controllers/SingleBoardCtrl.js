@@ -16,18 +16,21 @@ app.controller("SingleBoardCtrl", function($location, $routeParams, $rootScope, 
         $location.path(`/pincreate/${$routeParams.id}`);
     };
 
-  $scope.makeTried = (pin, pinId) => {
-  	console.log("pin in makeTried", pin);
-    pin.tried = pin.tried ? false : true;
-    let triedPin = PinterestService.createPinObj(pin);
-    PinterestService.updatePin(triedPin, pinId).then(() => {
-      showPinsForSingleBoard();
-    }).catch((err) => {
-      console.log('error in updatePin:', err);
-    });
+	$scope.makeTried = (pin, pinId) => {
+	  	console.log("pin in makeTried", pin);
+	    pin.tried = pin.tried ? false : true;
+	    let triedPin = PinterestService.createPinObj(pin);
+	    PinterestService.updatePin(triedPin, pinId).then(() => {
+	      showPinsForSingleBoard();
+	    }).catch((err) => {
+	      console.log('error in updatePin:', err);
+	    });
   };
 	
-
+  	$scope.editPin = (pin, pinId) => {
+  		console.log("pin in editPin", pin);
+    	$location.path(`/singleBoard/editPin/${pinId}`);
+    };
 
 
 

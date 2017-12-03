@@ -41,7 +41,7 @@ app.controller("PinCtrl", function ($location, $rootScope, $scope, $routeParams,
         $location.path(`/pin/${pinId}`);
     };
 
-     $scope.editPin = (pinId) => {
+    $scope.editPin = (pinId) => {
         $location.path(`/pins/edit/${pinId}`);
     };
 

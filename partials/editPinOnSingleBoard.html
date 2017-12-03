@@ -1,0 +1,11 @@
+<div class="container text-center">
+
+    <form class="form-group" name="edit_contact">
+        <div class="col-md-6 col-md-offset-3">
+            <input type="text" class="form-control" id="editPinName" ng-model="pin.name" ng-required="true">
+            <input type="text" class="form-control" id="editPinUrl" placeholder="Pin Url" ng-model="pin.url" ng-required="true">
+            <button ng-disabled="edit_contact.$invalid" type="button" class="btn btn-default" ng-click="submitNewPinToSingleBoard(pin)">Save Pin</button>
+        </div>
+    </form>        
+
+</div>
