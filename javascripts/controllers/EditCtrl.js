@@ -42,9 +42,25 @@ app.controller("EditCtrl", function ($location, $routeParams, $scope, PinterestS
 		});
 	};
 
+	const getBoardInfo = () => {
+    PinterestService.getSingleBoard($routeParams.id).then((results) => {
+      $scope.board = results.data;
+    }).catch((error) => {
+      console.log("error in getSingleBoard", error);
+    });
+  };
 
+  getBoardInfo();
 
-
+  $scope.submitNewBoard = (board, boardId) => {
+		let boardToEdit = PinterestService.createBoardObj(board);
+		PinterestService.updateBoard(boardToEdit, $routeParams.id).then(() => {
+			console.log("boardToEdit", boardToEdit);
+			$location.path("/home");
+		}).catch((error) => {
+			console.log("error in submitNewBoard", error);
+		});
+	};
 
 });
 

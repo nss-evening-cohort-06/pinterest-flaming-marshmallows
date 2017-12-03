@@ -37,6 +37,10 @@ app.controller("BoardCtrl", function ( $location, $rootScope, $routeParams, $sco
     console.log("boardId:", boardId);
   };
 
+  $scope.editBoard = (boardId) => {
+    console.log("boardId:", boardId);
+    $location.path(`/singleBoard/edit/${boardId}`);
+  };
     
 
 });

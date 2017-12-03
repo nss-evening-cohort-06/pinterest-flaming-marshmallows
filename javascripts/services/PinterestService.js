@@ -79,7 +79,16 @@ app.service("PinterestService", function($http, $q, $rootScope, FIREBASE_CONFIG)
       "name": pin.name,
       "board_id": pin.board_id,
       "tried": pin.tried,
-      "url": pin.url
+      "url": pin.url,
+      "uid": $rootScope.uid
+    };
+  };
+
+  const createBoardObj = (board) => {
+    return {
+      "description": board.description,
+      "name": board.name,
+      "uid": $rootScope.uid
     };
   };
 
@@ -127,6 +136,7 @@ app.service("PinterestService", function($http, $q, $rootScope, FIREBASE_CONFIG)
     updatePin,
     getTriedPins,
     createPinObj,
+    createBoardObj,
     getAllPinsWithSingleBoard,
     getSinglePin
   };
