@@ -1,28 +1,27 @@
-	<h1>{{boardName}}</h1>
-	<div class="text-center">
+<h1>{{boardName}}</h1>
+<div class="text-center" id="singleBoard">
     <h1>Create Pin</h1>
-    <div>            
-        <div class="container col-md-4 col-xs-offset-4">                    
-            <div class="thumbnail pin create_pin">
-                <h4>Add Pin</h4>
-                <button class="btn btn-default create_pin_btn" ng-click="goToCreatePin()">+</button>
+    <div class="container col-xs-4 col-xs-offset-4">
+        <div class="thumbnail pin create_pin">
+            <h4>Add Pin</h4>
+            <button class="btn btn-lg btn-default create_pin_btn" ng-click="goToCreatePin()">+</button>
+        </div>
+    </div>
+    <div class="col-xs-12 col-xs-offset-1">
+        <div class="pins">
+            <div ng-repeat="pinsWithId in pinsWithIds" class="col-sm-4 pin-cards">
+                <div ng-show="pinsWithId.uid === uid" class="thumbnail pin-height">
+                    <h3 class="name">{{pinsWithId.name}}</h3>
+                    <p class="board_id">{{pinsWithId.url}}</p>
+                    <div class="btn-toolbar pin-btn" role="toolbar" aria-label="...">
+                        <button class="btn btn-primary edit" ng-click="editPin(pinsWithId.id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                        <button ng-if="!pinsWithId.tried" class="btn btn-success tried" ng-click="makeTried(pinsWithId,pinsWithId.id)"><i class="fa fa-check-circle-o"></i></button>
+                        <button ng-if="pinsWithId.tried" class="btn btn-success tried" ng-click="makeTried(pinsWithId,pinsWithId.id)"><i class="fa fa-check-circle"></i></button>
+                        <button class="btn btn-danger delete" ng-click="deletePin(pinsWithId.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-	<div class="pins">
-	            <div ng-repeat="pinsWithId in pinsWithIds" class="col-sm-6 col-md-4">
-	                <div ng-show="pinsWithId.uid === uid"class="thumbnail">
-	                    <h3 class="name">{{pinsWithId.name}}</h3>
-	                    <p class="board_id">{{pinsWithId.url}}</p>
-	                    <p>
-	                        <div class="btn-toolbar" role="toolbar" aria-label="...">
-                            <button class="btn btn-primary edit" ng-click="editPin(pinsWithId.id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                            <button ng-if="!pinsWithId.tried" class="btn btn-success tried" ng-click="makeTried(pinsWithId,pinsWithId.id)"><i class="fa fa-check-circle-o"></i></button>
-                            <button ng-if="pinsWithId.tried" class="btn btn-success tried" ng-click="makeTried(pinsWithId,pinsWithId.id)"><i class="fa fa-check-circle"></i></button>
-                            <button class="btn btn-danger delete" ng-click="deletePin(pinsWithId.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                        </div>
-	                    </p>
-	                </div>
-	            </div>
-	    </div>
 </div>

@@ -11,13 +11,48 @@
   right: 110px; }
 
 .board_position {
+  position: relative;
+  height: 150px; }
+
+.board-btn {
+  margin-left: 119px;
+  position: absolute;
+  bottom: 5px; }
+
+.navbar-brand {
+  padding: 0; }
+
+.nav-img {
+  height: 50px; }
+
+.pin-cards {
+  width: 300px; }
+
+.pin-height {
+  position: relative;
+  height: 200px; }
+  .pin-height .pin-btn {
+    position: absolute;
+    bottom: 5px;
+    margin-left: 64px; }
+
+.create_pin {
+  position: relative;
+  height: 131px;
+  width: 255px;
+  margin-left: 40px; }
+
+.create_pin_btn {
+  margin-top: 15px; }
+
+.tried-pin {
+  height: 200px;
   position: relative; }
+  .tried-pin .tried-pin-btn {
+    position: absolute;
+    bottom: 5px;
+    margin-left: 32px; }
 
-.delete {
-  text-align: right; }
-
-.edit {
-  float: left; }
-
-.tried {
-  text-align: right; }
+.pin-it-btn {
+  height: 31px;
+  width: 43px; }

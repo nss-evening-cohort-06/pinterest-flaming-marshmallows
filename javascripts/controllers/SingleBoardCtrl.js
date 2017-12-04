@@ -1,22 +1,20 @@
 "use strict";
 
-app.controller("SingleBoardCtrl", function($location, $routeParams, $rootScope, $scope, PinterestService) {
+app.controller("SingleBoardCtrl", function ($location, $routeParams, $rootScope, $scope, PinterestService) {
 
-	const showPinsForSingleBoard = () => {
-		PinterestService.getAllPinsWithSingleBoard($routeParams.id).then((results) => {
+    const showPinsForSingleBoard = () => {
+        PinterestService.getAllPinsWithSingleBoard($routeParams.id).then((results) => {
             $scope.pinsWithIds = results;
             PinterestService.getSingleBoard($routeParams.id).then((results) => {
                 $scope.boardName = results.data.name;
             }).catch(() => {
-                
             });
-            
         });
-	};
+    };
 
-	showPinsForSingleBoard();
+    showPinsForSingleBoard();
 
-	$scope.goToCreatePin = () => {
+    $scope.goToCreatePin = () => {
         $location.path(`/pincreate/${$routeParams.id}`);
     };
 
@@ -26,9 +24,9 @@ app.controller("SingleBoardCtrl", function($location, $routeParams, $rootScope, 
         PinterestService.updatePin(triedPin, pinId).then(() => {
             showPinsForSingleBoard();
         }).catch((err) => {
-          console.log('error in updatePin:', err);
+            console.log('error in updatePin:', err);
         });
-      };
+    };
 
     $scope.deletePin = (pinId) => {
         PinterestService.deletePin(pinId).then(() => {
@@ -37,10 +35,9 @@ app.controller("SingleBoardCtrl", function($location, $routeParams, $rootScope, 
             console.log("error in deletePin", err);
         });
     };
-	
-  	$scope.editPin = (pinId) => {
-  		console.log("pinId in editPin", pinId);
-    	$location.path(`pins/edit/${pinId}`);
+
+    $scope.editPin = (pinId) => {
+        $location.path(`pins/edit/${pinId}`);
     };
 
 });

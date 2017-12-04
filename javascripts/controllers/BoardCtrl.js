@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller("BoardCtrl", function ( $location, $rootScope, $routeParams, $scope, PinterestService ) {
+app.controller("BoardCtrl", function ($location, $rootScope, $routeParams, $scope, PinterestService) {
 
     $scope.board = {};
     $scope.pins = {};
@@ -21,29 +21,29 @@ app.controller("BoardCtrl", function ( $location, $rootScope, $routeParams, $sco
             $scope.pins = results;
         }).catch((err) => {
             console.log("err in getPins:", err);
-        });        
+        });
     };
-    
+
     $scope.getSingleBoard = (board) => {
         $location.path(`/singleBoard/${board.id}`);
     };
 
-  $scope.goToCreateBoard = () => {      
-    $location.path(`/create`);
-  };
+    $scope.goToCreateBoard = () => {
+        $location.path(`/create`);
+    };
 
-  $scope.deletePinsFromBoard = (boardId) => {
-    PinterestService.getAllPinsWithSingleBoard(boardId).then((pins) => {
-        pins.forEach((pin) => {
-            deletePins(pin.id);
-        });        
-        deleteBoard(boardId);         
-    }).catch((err) => {
-        console.log("err in getAllPinsWithSingleBoard:", err);
-    });                      
-  };
+    $scope.deletePinsFromBoard = (boardId) => {
+        PinterestService.getAllPinsWithSingleBoard(boardId).then((pins) => {
+            pins.forEach((pin) => {
+                deletePins(pin.id);
+            });
+            deleteBoard(boardId);
+        }).catch((err) => {
+            console.log("err in getAllPinsWithSingleBoard:", err);
+        });
+    };
     const deletePins = (pinId) => {
-        PinterestService.deletePin(pinId).then(() => {            
+        PinterestService.deletePin(pinId).then(() => {
         }).catch((err) => {
             console.log("error in deletePin:", err);
         });

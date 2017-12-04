@@ -1,11 +1,11 @@
 <div class="container text-center">
-
+    <h1>Edit Your '{{pin.name}}' Pin!</h1>
     <form class="form-group" name="edit_pin">
         <div class="col-md-6 col-md-offset-3">
-            <input type="text" class="form-control" id="editPinName" ng-model="pin.name" ng-required="true">
-            <input type="text" class="form-control" id="editPinUrl" placeholder="Pin Url" ng-model="pin.url" ng-required="true">
-            <button ng-disabled="edit_pin.$invalid" type="button" class="btn btn-default" ng-click="submitNewPin(pin)">Save Pin</button>
+            <input type="text" class="form-control" id="editPinName" ng-model="pin.name" ng-required="true"><br>
+            <input type="text" class="form-control" id="editPinUrl" placeholder="Pin Url" ng-model="pin.url" ng-required="true"><br>
+            <button ng-disabled="edit_pin.$invalid" type="button" class="btn btn-default" ng-click="submitNewPin(pin)"><img class="pin-it-btn" src="./images/pin-it.png"></button>
         </div>
-    </form>        
+    </form>
 
 </div>
