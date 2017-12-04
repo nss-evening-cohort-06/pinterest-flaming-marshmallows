@@ -11,9 +11,9 @@
     </div>
 	<div class="pins">
 	            <div ng-repeat="pinsWithId in pinsWithIds" class="col-sm-6 col-md-4">
-	                <div class="thumbnail">
+	                <div ng-show="pinsWithId.uid === uid"class="thumbnail">
 	                    <h3 class="name">{{pinsWithId.name}}</h3>
-	                    <p class="board_id">{{pinsWithId.board_id}}</p>
+	                    <p class="board_id">{{pinsWithId.url}}</p>
 	                    <p>
 	                        <div class="btn-toolbar" role="toolbar" aria-label="...">
                             <button class="btn btn-primary edit" ng-click="editPin(pinsWithId.id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>

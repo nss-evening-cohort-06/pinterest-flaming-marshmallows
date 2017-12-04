@@ -25,8 +25,7 @@ app.controller("BoardCtrl", function ( $location, $rootScope, $routeParams, $sco
     };
     
     $scope.getSingleBoard = (board) => {
-        console.log("in getSingleBoard");
-        $location.path(`/singleBoard/${board.name}`);
+        $location.path(`/singleBoard/${board.id}`);
     };
 
   $scope.goToCreateBoard = () => {      

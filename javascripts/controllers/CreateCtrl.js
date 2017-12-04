@@ -13,7 +13,8 @@ app.controller("CreateCtrl", function ($routeParams, $location, $rootScope, $sco
       "name": pin.name,
       "board_id": $routeParams.id,
       "tried": pin.tried ? pin.tried : false,
-      "url": pin.url
+      "url": pin.url,
+      "uid": $rootScope.uid
       };
     };
 
@@ -26,4 +27,5 @@ app.controller("CreateCtrl", function ($routeParams, $location, $rootScope, $sco
       console.log("Error in submit", error);
     });
   };
+
 });
