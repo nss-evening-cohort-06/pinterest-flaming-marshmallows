@@ -16,8 +16,9 @@
 	                    <p class="board_id">{{pinsWithId.url}}</p>
 	                    <p>
 	                        <button class="btn btn-primary edit glyphicon glyphicon-pencil" ng-click="editPin(pin.id)"></button>   
-	                        <button class="btn btn-success tried glyphicon glyphicon-ok" ng-click="triedPin(pin.id)"></button>
-	                        <button class="btn btn-danger delete glyphicon glyphicon-trash" ng-click="deletePin(pinsWithId)"></button>
+	                        <button ng-if="!pinsWithId.tried" class="btn btn-success tried" ng-click="makeTried(pinsWithId,pinsWithId.id)"><i class="fa fa-check-circle-o"></i></button>
+                            <button ng-if="pinsWithId.tried" class="btn btn-success tried" ng-click="makeTried(pinsWithId,pinsWithId.id)"><i class="fa fa-check-circle"></i></button>
+	                        <button class="btn btn-danger delete glyphicon glyphicon-trash" ng-click="deletePin(pinsWithId.id)"></button>
 	                    </p>
 	                </div>
 	            </div>

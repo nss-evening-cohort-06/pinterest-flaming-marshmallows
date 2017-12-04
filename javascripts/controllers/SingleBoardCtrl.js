@@ -20,7 +20,21 @@ app.controller("SingleBoardCtrl", function($location, $routeParams, $scope, Pint
         $location.path(`/pincreate/${$routeParams.id}`);
     };
 
-    $scope.deletePin = (pin) => {
-        console.log("pin:", pin);
+    $scope.makeTried = (pin, pinId) => {
+        pin.tried = pin.tried ? false : true;
+        let triedPin = PinterestService.createPinObj(pin);
+        PinterestService.updatePin(triedPin, pinId).then(() => {
+            showPinsForSingleBoard();
+        }).catch((err) => {
+          console.log('error in updatePin:', err);
+        });
+      };
+
+    $scope.deletePin = (pinId) => {
+        PinterestService.deletePin(pinId).then(() => {
+            showPinsForSingleBoard();
+        }).catch((err) => {
+            console.log("error in deletePin", err);
+        });
     };
 });
