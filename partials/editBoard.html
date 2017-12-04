@@ -1,0 +1,18 @@
+<div id='editBoard'>
+  <h1 class='text-center'>Edit the {{board.name}} Board!</h1>
+
+  <form name="editBoardForm">
+    <div class="form-group">
+      <label for="firstName">Board Name</label>
+      <input type="name" class="form-control" id="editBoardNameInput" ng-model="board.name" ng-required="true">
+    </div>
+
+    <div class="form-group">
+      <label for="firstName">Board Description</label>
+      <input type="name" class="form-control" id="editBoardDescriptionInput" ng-model="board.description" ng-required="true">
+    </div>
+
+    <button type="submit " class="btn btn-primary btn-lg btn-block " ng-click="submitNewBoard(board)" ng-disabled="newBoardForm.$invalid">Submit</button>
+  </form>
+
+</div>

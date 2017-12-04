@@ -51,10 +51,14 @@ app.controller("BoardCtrl", function ( $location, $rootScope, $routeParams, $sco
 
     const deleteBoard = (boardId) => {
         PinterestService.deleteBoard(boardId).then((results) => {
-            console.log("results:", results);
             getBoards();
         }).catch((err) => {
             console.log("err in deleteBoard:", err);
         });
     };
+
+    $scope.editBoard = (boardId) => {
+        $location.path(`/singleBoard/edit/${boardId}`);
+    };
+
 });

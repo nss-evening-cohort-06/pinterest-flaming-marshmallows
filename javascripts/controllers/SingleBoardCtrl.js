@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("SingleBoardCtrl", function($location, $routeParams, $scope, PinterestService) {
+app.controller("SingleBoardCtrl", function($location, $routeParams, $rootScope, $scope, PinterestService) {
 
 	const showPinsForSingleBoard = () => {
 		PinterestService.getAllPinsWithSingleBoard($routeParams.id).then((results) => {
@@ -37,4 +37,10 @@ app.controller("SingleBoardCtrl", function($location, $routeParams, $scope, Pint
             console.log("error in deletePin", err);
         });
     };
+	
+  	$scope.editPin = (pinId) => {
+  		console.log("pinId in editPin", pinId);
+    	$location.path(`pins/edit/${pinId}`);
+    };
+
 });

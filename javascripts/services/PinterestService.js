@@ -51,23 +51,26 @@ app.service("PinterestService", function($http, $q, $rootScope, FIREBASE_CONFIG)
     });
   };
 
-  const getAllPinsWithSingleBoard = (boardId) => {
+  const getAllPinsWithSingleBoard = (board) => {
     let pinsWithIds = [];
     let fbPins = [];
     return $q((resolve, reject) => {
-      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="board_id"&equalTo="${boardId}"`).then((results) => {        
+      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json`).then((results) => {
         fbPins = results.data;
+        console.log("fbPins", fbPins);
         Object.keys(fbPins).forEach((key) => {
-          fbPins[key].id = key;
+          if (fbPins[key].board_id === board) {
+            fbPins[key].id = key;
             pinsWithIds.push(fbPins[key]);
+          }
         });
+        console.log("pinsWithIds", pinsWithIds);
         resolve(pinsWithIds);
       }).catch((error) => {
         reject(error);
       });
     });
   };
-
 
   const createPinObj = (pin) => {
     return {
@@ -79,8 +82,20 @@ app.service("PinterestService", function($http, $q, $rootScope, FIREBASE_CONFIG)
     };
   };
 
+  const createBoardObj = (board) => {
+    return {
+      "description": board.description,
+      "name": board.name,
+      "uid": $rootScope.uid
+    };
+  };
+
   const getSingleBoard = (boardId) => {
     return $http.get(`${FIREBASE_CONFIG.databaseURL}/boards/${boardId}.json`);
+  };
+
+  const getSinglePin = (pinId) => {
+    return $http.get(`${FIREBASE_CONFIG.databaseURL}/pins/${pinId}.json`);
   };
 
   const postNewBoard = (newBoard) => {
@@ -123,7 +138,9 @@ app.service("PinterestService", function($http, $q, $rootScope, FIREBASE_CONFIG)
     updatePin,
     getTriedPins,
     createPinObj,
-    getAllPinsWithSingleBoard
+    createBoardObj,
+    getAllPinsWithSingleBoard,
+    getSinglePin
   };
 
 });

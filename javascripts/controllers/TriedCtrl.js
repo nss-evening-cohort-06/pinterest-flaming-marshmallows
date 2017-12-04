@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller("TriedCtrl", function ($rootScope, $scope, PinterestService) {
+app.controller("TriedCtrl", function ($location, $rootScope, $scope, PinterestService) {
 
   const getPins = () => {
     PinterestService.getTriedPins($rootScope.uid).then((results) => {
@@ -13,6 +13,7 @@ app.controller("TriedCtrl", function ($rootScope, $scope, PinterestService) {
   getPins();
 
   $scope.makeTried = (pin, pinId) => {
+    console.log("pins in TriedCtrl", pin);
     pin.tried = pin.tried ? false : true;
     let triedPin = PinterestService.createPinObj(pin);
     PinterestService.updatePin(triedPin, pinId).then(() => {
@@ -21,5 +22,9 @@ app.controller("TriedCtrl", function ($rootScope, $scope, PinterestService) {
       console.log('error in updatePin:', err);
     });
   };
+
+  $scope.editPin = (pinId) => {
+        $location.path(`pins/edit/${pinId}`);
+    };
 
 });
