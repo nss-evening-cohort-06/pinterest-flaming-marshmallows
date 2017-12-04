@@ -9,7 +9,6 @@ app.service("PinterestService", function($http, $q, $rootScope, FIREBASE_CONFIG)
         Object.keys(fbBoards).forEach((key) => {
           fbBoards[key].id = key;
           boards.push(fbBoards[key]);
-          console.log("boards", boards);
         });
         resolve(boards);
       }).catch((error) => {
@@ -21,14 +20,13 @@ app.service("PinterestService", function($http, $q, $rootScope, FIREBASE_CONFIG)
   const getPins = (userUid) => {
     let pins = [];
     return $q((resolve, reject) => {
-      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json`).then((results) => {
+      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="uid"&equalTo="${userUid}"`).then((results) => {
         let fbPins = results.data;
         Object.keys(fbPins).forEach((key) => {
           fbPins[key].id = key;
           pins.push(fbPins[key]);
         });
         resolve(pins);
-        console.log("getPins", pins);
       }).catch((error) => {
         reject(error);
       });
@@ -38,7 +36,7 @@ app.service("PinterestService", function($http, $q, $rootScope, FIREBASE_CONFIG)
   const getTriedPins = () => {
     let triedPins = [];
     return $q((resolve, reject) => {
-      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json`).then((results) => {
+      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="uid"&equalTo="${$rootScope.uid}"`).then((results) => {
         let fbPins = results.data;
         Object.keys(fbPins).forEach((key) => {
           fbPins[key].id = key;
@@ -53,19 +51,16 @@ app.service("PinterestService", function($http, $q, $rootScope, FIREBASE_CONFIG)
     });
   };
 
-  const getAllPinsWithSingleBoard = (board) => {
+  const getAllPinsWithSingleBoard = (boardId) => {
     let pinsWithIds = [];
     let fbPins = [];
     return $q((resolve, reject) => {
-      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json`).then((results) => {
+      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="board_id"&equalTo="${boardId}"`).then((results) => {        
         fbPins = results.data;
-        console.log("fbPins", fbPins);
         Object.keys(fbPins).forEach((key) => {
-          if (fbPins[key].board_id === board) {
+          fbPins[key].id = key;
             pinsWithIds.push(fbPins[key]);
-          }
         });
-        console.log("pinsWithIds", pinsWithIds);
         resolve(pinsWithIds);
       }).catch((error) => {
         reject(error);
@@ -79,7 +74,8 @@ app.service("PinterestService", function($http, $q, $rootScope, FIREBASE_CONFIG)
       "name": pin.name,
       "board_id": pin.board_id,
       "tried": pin.tried,
-      "url": pin.url
+      "url": pin.url,
+      "uid": $rootScope.uid
     };
   };
 

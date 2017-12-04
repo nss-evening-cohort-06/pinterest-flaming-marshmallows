@@ -5,8 +5,12 @@ app.controller("SingleBoardCtrl", function($location, $routeParams, $scope, Pint
 	const showPinsForSingleBoard = () => {
 		PinterestService.getAllPinsWithSingleBoard($routeParams.id).then((results) => {
             $scope.pinsWithIds = results;
-            $scope.boardName = $routeParams.id;
-            console.log("in get single board pinsWithIds", $scope.pinsWithIds);
+            PinterestService.getSingleBoard($routeParams.id).then((results) => {
+                $scope.boardName = results.data.name;
+            }).catch(() => {
+                
+            });
+            
         });
 	};
 
@@ -15,12 +19,4 @@ app.controller("SingleBoardCtrl", function($location, $routeParams, $scope, Pint
 	$scope.goToCreatePin = () => {
         $location.path(`/pincreate/${$routeParams.id}`);
     };
-
-
-	
-
-
-
-
-
 });
