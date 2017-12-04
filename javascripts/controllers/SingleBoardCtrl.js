@@ -19,4 +19,8 @@ app.controller("SingleBoardCtrl", function($location, $routeParams, $scope, Pint
 	$scope.goToCreatePin = () => {
         $location.path(`/pincreate/${$routeParams.id}`);
     };
+
+    $scope.deletePin = (pin) => {
+        console.log("pin:", pin);
+    };
 });

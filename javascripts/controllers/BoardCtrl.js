@@ -21,7 +21,7 @@ app.controller("BoardCtrl", function ( $location, $rootScope, $routeParams, $sco
             $scope.pins = results;
         }).catch((err) => {
             console.log("err in getPins:", err);
-        });
+        });        
     };
     
     $scope.getSingleBoard = (board) => {
@@ -32,10 +32,29 @@ app.controller("BoardCtrl", function ( $location, $rootScope, $routeParams, $sco
     $location.path(`/create`);
   };
 
-  $scope.deleteBoard = (boardId) => {
-    console.log("boardId:", boardId);
+  $scope.deletePinsFromBoard = (boardId) => {
+    PinterestService.getAllPinsWithSingleBoard(boardId).then((pins) => {
+        pins.forEach((pin) => {
+            deletePins(pin.id);
+        });        
+        deleteBoard(boardId);         
+    }).catch((err) => {
+        console.log("err in getAllPinsWithSingleBoard:", err);
+    });                      
   };
+    const deletePins = (pinId) => {
+        PinterestService.deletePin(pinId).then(() => {            
+        }).catch((err) => {
+            console.log("error in deletePin:", err);
+        });
+    };
 
-    
-
+    const deleteBoard = (boardId) => {
+        PinterestService.deleteBoard(boardId).then((results) => {
+            console.log("results:", results);
+            getBoards();
+        }).catch((err) => {
+            console.log("err in deleteBoard:", err);
+        });
+    };
 });
