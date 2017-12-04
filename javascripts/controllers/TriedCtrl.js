@@ -13,7 +13,6 @@ app.controller("TriedCtrl", function ($location, $rootScope, $scope, PinterestSe
   getPins();
 
   $scope.makeTried = (pin, pinId) => {
-    console.log("pins in TriedCtrl", pin);
     pin.tried = pin.tried ? false : true;
     let triedPin = PinterestService.createPinObj(pin);
     PinterestService.updatePin(triedPin, pinId).then(() => {
@@ -24,7 +23,7 @@ app.controller("TriedCtrl", function ($location, $rootScope, $scope, PinterestSe
   };
 
   $scope.editPin = (pinId) => {
-        $location.path(`pins/edit/${pinId}`);
-    };
+    $location.path(`pins/edit/${pinId}`);
+  };
 
 });

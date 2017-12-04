@@ -1,5 +1,5 @@
 <div class='text-center' id='home'>
-    <div class="input-group input-group-lg col-xs-6 col-xs-offset-3">
+    <div class="col-xs-6 col-xs-offset-3">
         <div id="createBoard">
             <div class="container col-md-6 col-xs-offset-3">
                 <div class="thumbnail board create_board">
@@ -9,26 +9,22 @@
             </div>
         </div>
     </div>
-    <h1>Boards</h1>
+
+    <h1 class="col-xs-12">Boards</h1>
+
     <div id='boards'>
-        <div ng-repeat="board in boards | filter: searchText" class="col-sm-6 col-md-4 board">
-            <div class="thumbnail board_position">   
-                <div class="edit">
-                    <button class="btn btn-primary editBoard" ng-click="editBoard(board.id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                </div>
-                <div class="tried">
-                    <button class='btn btn-sm btn-default'>Tried</button> 
-                </div>                                
+        <div ng-repeat="board in boards | filter: searchText" class="col-xs-4">
+            <div class="thumbnail board_position">
                 <a ng-click="getSingleBoard(board)">
                     <div class="caption">
                         <h4>{{board.name}}</h4>
                         <p>{{board.description}}</p>
                     </div>
                 </a>
-                <div class="delete">
-                    <button class='btn btn-sm btn-danger' ng-click="deletePinsFromBoard(board.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                <div class="btn-toolbar board-btn" role="toolbar" aria-label="...">
+                    <button class='btn btn-primary' ng-click="editBoard(board.id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button class="btn btn-danger delete" ng-click="deletePinsFromBoard(board.id)"><i class="fa fa-trash" aria-hidden="true "></i></button>
                 </div>
             </div>
         </div>
     </div>
-</div>

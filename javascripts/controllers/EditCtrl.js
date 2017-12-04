@@ -1,23 +1,20 @@
 'use strict';
 
 app.controller("EditCtrl", function ($location, $routeParams, $scope, PinterestService) {
-    
-    const getPinInfo = () => {
-    	console.log("pinId", $routeParams.id);
-    PinterestService.getSinglePin($routeParams.id).then((results) => {
-    	console.log("results from getSinglePin", results);
-      $scope.pin = results.data;
-    }).catch((error) => {
-      console.log("error in getSinglePin", error);
-    });
-  };
 
-  getPinInfo();
+	const getPinInfo = () => {
+		PinterestService.getSinglePin($routeParams.id).then((results) => {
+			$scope.pin = results.data;
+		}).catch((error) => {
+			console.log("error in getSinglePin", error);
+		});
+	};
 
-  $scope.submitNewPin = (pin, pinId) => {
+	getPinInfo();
+
+	$scope.submitNewPin = (pin, pinId) => {
 		let pinToEdit = PinterestService.createPinObj(pin);
 		PinterestService.updatePin(pinToEdit, $routeParams.id).then(() => {
-			console.log("pinToEdit", pinToEdit);
 			$location.path("/pins");
 		}).catch((error) => {
 			console.log("error in submitNewPin", error);
@@ -25,9 +22,7 @@ app.controller("EditCtrl", function ($location, $routeParams, $scope, PinterestS
 	};
 
 	$scope.submitNewPinToSingleBoard = (board, pin, pinId) => {
-		console.log("pin in submitNewPinToSingleBoard", pin);
 		let pinToEdit = PinterestService.createPinObj(pin);
-		console.log("pin to edit in EditCtrl", pinToEdit);
 		PinterestService.updatePin(pinToEdit, $routeParams.id).then(() => {
 			$location.path(`/singleBoard/${board.name}`);
 		}).catch((error) => {
@@ -38,7 +33,6 @@ app.controller("EditCtrl", function ($location, $routeParams, $scope, PinterestS
 	$scope.submitNewPinToTriedBoard = (pin, pinId) => {
 		let pinToEdit = PinterestService.createPinObj(pin);
 		PinterestService.updatePin(pinToEdit, pin.id).then(() => {
-			console.log("pinToEdit", pinToEdit);
 			$location.path("/tried");
 		}).catch((error) => {
 			console.log("error in submitNewPin", error);
@@ -46,19 +40,18 @@ app.controller("EditCtrl", function ($location, $routeParams, $scope, PinterestS
 	};
 
 	const getBoardInfo = () => {
-    PinterestService.getSingleBoard($routeParams.id).then((results) => {
-      $scope.board = results.data;
-    }).catch((error) => {
-      console.log("error in getSingleBoard", error);
-    });
-  };
+		PinterestService.getSingleBoard($routeParams.id).then((results) => {
+			$scope.board = results.data;
+		}).catch((error) => {
+			console.log("error in getSingleBoard", error);
+		});
+	};
 
-  getBoardInfo();
+	getBoardInfo();
 
-  $scope.submitNewBoard = (board, boardId) => {
+	$scope.submitNewBoard = (board, boardId) => {
 		let boardToEdit = PinterestService.createBoardObj(board);
 		PinterestService.updateBoard(boardToEdit, $routeParams.id).then(() => {
-			console.log("boardToEdit", boardToEdit);
 			$location.path("/home");
 		}).catch((error) => {
 			console.log("error in submitNewBoard", error);
