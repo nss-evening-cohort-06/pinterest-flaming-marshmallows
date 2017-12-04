@@ -122,10 +122,6 @@ app.service("PinterestService", function($http, $q, $rootScope, FIREBASE_CONFIG)
     return $http.delete(`${FIREBASE_CONFIG.databaseURL}/pins/${pinId}.json`);
   };
 
-  const deletePinsFromBoard = (boardId, pinId, pins) => {
-
-  };
-
   return {
     getBoards,
     getPins,
