@@ -4,7 +4,7 @@
             <div ng-repeat="pin in pins" class="col-sm-6 col-md-4 movie">
                 <div class="thumbnail">
                     <h3 class="name">{{pin.name}}</h3>
-                    <p class="board_id">{{pin.board_id}}</p>
+                    <p class="board_id">{{pin.url}}</p>
                     <p>
                         <div class="btn-toolbar" role="toolbar" aria-label="...">
                             <button class="btn btn-primary edit" ng-click="editPin(pin.id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
