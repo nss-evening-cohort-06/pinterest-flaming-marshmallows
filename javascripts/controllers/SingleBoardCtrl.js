@@ -19,7 +19,6 @@ app.controller("SingleBoardCtrl", function($location, $routeParams, $rootScope, 
 	$scope.goToCreatePin = () => {
         $location.path(`/pincreate/${$routeParams.id}`);
     };
-<<<<<<< HEAD
 
 	$scope.makeTried = (pin, pinId) => {
 	  	console.log("pin in makeTried", pin);
@@ -40,6 +39,4 @@ app.controller("SingleBoardCtrl", function($location, $routeParams, $rootScope, 
 
 
 
-=======
->>>>>>> master
 });

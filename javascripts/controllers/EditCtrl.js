@@ -37,7 +37,7 @@ app.controller("EditCtrl", function ($location, $routeParams, $scope, PinterestS
 
 	$scope.submitNewPinToTriedBoard = (pin, pinId) => {
 		let pinToEdit = PinterestService.createPinObj(pin);
-		PinterestService.updatePin(pinToEdit, $pin.id).then(() => {
+		PinterestService.updatePin(pinToEdit, pin.id).then(() => {
 			console.log("pinToEdit", pinToEdit);
 			$location.path("/tried");
 		}).catch((error) => {
