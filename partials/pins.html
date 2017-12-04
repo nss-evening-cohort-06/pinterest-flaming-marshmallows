@@ -5,15 +5,15 @@
             <div ng-repeat="pin in pins" class="col-sm-4 pin-cards">
                 <div class="thumbnail pin-height" ng-show="pin.uid === uid">
                     <h3 class="name">{{pin.name}}</h3>
-                    <p class="board_id">{{pin.url}}</p>
                     <p>
-                        <div class="btn-toolbar pin-btn" role="toolbar" aria-label="...">
-                            <button class="btn btn-primary edit" ng-click="editPin(pin.id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                            <button ng-if="!pin.tried" class="btn btn-success tried" ng-click="makeTried(pin,pin.id)"><i class="fa fa-check-circle-o"></i></button>
-                            <button ng-if="pin.tried" class="btn btn-success tried" ng-click="makeTried(pin,pin.id)"><i class="fa fa-check-circle"></i></button>
-                            <button class="btn btn-danger delete" ng-click="deletePin(pin.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                        </div>
+                        <a href="{{pin.url}}">Click Here</a>
                     </p>
+                    <div class="btn-toolbar pin-btn" role="toolbar" aria-label="...">
+                        <button class="btn btn-primary edit" ng-click="editPin(pin.id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                        <button ng-if="!pin.tried" class="btn btn-success tried" ng-click="makeTried(pin,pin.id)"><i class="fa fa-check-circle-o"></i></button>
+                        <button ng-if="pin.tried" class="btn btn-success tried" ng-click="makeTried(pin,pin.id)"><i class="fa fa-check-circle"></i></button>
+                        <button class="btn btn-danger delete" ng-click="deletePin(pin.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    </div>
                 </div>
             </div>
         </div>

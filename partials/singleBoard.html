@@ -12,13 +12,14 @@
             <div ng-repeat="pinsWithId in pinsWithIds" class="col-sm-4 pin-cards">
                 <div ng-show="pinsWithId.uid === uid" class="thumbnail pin-height">
                     <h3 class="name">{{pinsWithId.name}}</h3>
-                    <p class="board_id">{{pinsWithId.url}}</p>
+                    <p>
+                        <a href="{{pinsWithId.url}}">Click Here</a>
+                    </p>
                     <div class="btn-toolbar pin-btn" role="toolbar" aria-label="...">
                         <button class="btn btn-primary edit" ng-click="editPin(pinsWithId.id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                         <button ng-if="!pinsWithId.tried" class="btn btn-success tried" ng-click="makeTried(pinsWithId,pinsWithId.id)"><i class="fa fa-check-circle-o"></i></button>
                         <button ng-if="pinsWithId.tried" class="btn btn-success tried" ng-click="makeTried(pinsWithId,pinsWithId.id)"><i class="fa fa-check-circle"></i></button>
                         <button class="btn btn-danger delete" ng-click="deletePin(pinsWithId.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                        </p>
                     </div>
                 </div>
             </div>
