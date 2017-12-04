@@ -2,7 +2,7 @@
     <div class="input-group col-xs-6 col-xs-offset-3">
         <div class="pins">
             <div ng-repeat="pin in pins" class="col-sm-6 col-md-4 movie">
-                <div class="thumbnail">
+                <div class="thumbnail" ng-show="pin.uid === uid">
                     <h3 class="name">{{pin.name}}</h3>
                     <p class="board_id">{{pin.url}}</p>
                     <p>
