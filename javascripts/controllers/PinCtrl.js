@@ -20,9 +20,7 @@ app.controller("PinCtrl", function ($location, $rootScope, $scope, $routeParams,
         });
     };
     
-    $scope.editPin = (PinId) => {
-        $location.path(`/boards/pins/edit/${$routeParams.id}`);
-    };
+   
 
     $scope.makeTried = (pin, pinId) => {
         pin.tried = pin.tried ? false : true;
@@ -42,4 +40,9 @@ app.controller("PinCtrl", function ($location, $rootScope, $scope, $routeParams,
     $scope.pinDetail = (pinId) => {
         $location.path(`/pin/${pinId}`);
     };
+
+    $scope.editPin = (pinId) => {
+        $location.path(`/pins/edit/${pinId}`);
+    };
+
 });
